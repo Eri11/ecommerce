@@ -131,9 +131,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#Renderiza imgs
+MEDIA_URL = '/images/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Agregar directorios estatics [img, css, js, etc]
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+#Decir a donde se guardan los medios
+MEDIA_ROOT = 'static/images' 
 
 CORS_ALLOW_ALL_ORIGINS = True
