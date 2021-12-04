@@ -18,7 +18,7 @@ function ProductScreen({ match }) {
 
     return (
         <div>
-            <Link to='/' className="btn btn-light my-3">Go Back</Link>
+            <Link to='/' className="btn btn-primary my-3">Regresar</Link>
             <Row>
                 <Col md={6}>
                     <Image src={product.image} alt={product.name} fluid />
@@ -34,11 +34,11 @@ function ProductScreen({ match }) {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            Price: ${product.price}
+                            <strong> Precio: </strong> ${product.price}
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            Description: {product.description}
+                            <strong> Descripción:</strong> {product.description}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>
@@ -48,7 +48,7 @@ function ProductScreen({ match }) {
                         <ListGroup variant="flush">
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Price: </Col>
+                                    <Col>Precio: </Col>
                                     <Col>
                                         <strong>${product.price}</strong>
                                     </Col>
@@ -65,7 +65,7 @@ function ProductScreen({ match }) {
                             </ListGroup.Item>
 
                             <ListGroup.Item>
-                                <Button className='fit-btn' disabled={product.countInStock === 0} type='button'>Add to Cart</Button>
+                                <Button className='fit-btn' disabled={product.countInStock === 0} type='button'>Agregar a carrito</Button>
                             </ListGroup.Item>
 
                         </ListGroup>
