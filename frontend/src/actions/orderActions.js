@@ -35,9 +35,12 @@ export const createOrder = (order) => async (dispatch, getState) => {
             payload: data
         })
 
+<<<<<<< HEAD
         localStorage.removeItem('cartItems')
 
 
+=======
+>>>>>>> ce38082e9146e4f798b6b4f564c399d41e2c9d70
     } catch (error) {
         dispatch({
             type: ORDER_CREATE_FAIL,
@@ -45,5 +48,11 @@ export const createOrder = (order) => async (dispatch, getState) => {
                 ? error.response.data.detail
                 : error.message,
         })
+<<<<<<< HEAD
     }
 }
+=======
+
+    }
+}
+>>>>>>> ce38082e9146e4f798b6b4f564c399d41e2c9d70
