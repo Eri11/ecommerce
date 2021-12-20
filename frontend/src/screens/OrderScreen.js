@@ -27,13 +27,21 @@ function OrderScreen({ match }) {
     }, [order, orderId])
 
 
-    return (
+    return loading ? (
+        <Loader />
+    ) : error ? (
+        <Message variant='danger'>{error}</Message>
+    ) : (
         <div>
+            <h1>Orden: {order._id}</h1>
             <Row>
                 <Col md={8}>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h2>ENVÍO</h2>
+
+                            <p><strong>Nombre: </strong> {order.user.name}</p>
+                            <p><strong>Email: </strong> <a href={`mailto:${order.user.email}`}>{order.user.email}</a> </p>
 
                             <p>
                                 <strong>Enviar a: </strong>
@@ -45,6 +53,13 @@ function OrderScreen({ match }) {
                                 {' '}
                                 {order.shippingAddress.country}
                             </p>
+
+                            {order.isDelivered ? (
+                                <Message variant='success'>Entregado el {order.deliveredAt}</Message>
+                            ) : (
+                                <Message variant='warning'>Sin entregar</Message>
+
+                            )}
                         </ListGroup.Item>
 
                         <ListGroup.Item>
@@ -54,6 +69,13 @@ function OrderScreen({ match }) {
                                 <strong>Método: </strong>
                                 {order.paymentMethod}
                             </p>
+
+                            {order.isPaid ? (
+                                <Message variant='success'>Pagado el {order.paidAt}</Message>
+                            ) : (
+                                <Message variant='warning'>Pago pendiente</Message>
+
+                            )}
                         </ListGroup.Item>
 
                         <ListGroup.Item>
